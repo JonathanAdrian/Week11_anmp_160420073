@@ -13,11 +13,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.advweek4.R
+import com.example.advweek4.viewmodel.DetailViewModel
 import com.example.advweek4.viewmodel.ListViewModel
+import com.example.advweek4.viewmodel.MenuDetailViewModel
 
 class StudentListFragment : Fragment() {
     private lateinit var viewModel: ListViewModel
-    private val studentListAdapter = StudentListAdapter(arrayListOf())
+    private lateinit var detailViewModel: DetailViewModel
+    private lateinit var studentListAdapter: StudentListAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        detailViewModel = ViewModelProvider(requireActivity()).get(DetailViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +38,7 @@ class StudentListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
+        studentListAdapter = StudentListAdapter(arrayListOf(), detailViewModel)
         viewModel.refresh()
         val recView = view.findViewById<RecyclerView>(R.id.recView)
         recView.layoutManager = LinearLayoutManager(context)
@@ -41,8 +50,6 @@ class StudentListFragment : Fragment() {
             viewModel.refresh()
             swipe.isRefreshing = false
         }
-
-
     }
 
     fun observeViewModel() {

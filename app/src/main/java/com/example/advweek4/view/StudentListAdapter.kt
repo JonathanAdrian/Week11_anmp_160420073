@@ -9,8 +9,9 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.advweek4.R
 import com.example.advweek4.model.Student
+import com.example.advweek4.viewmodel.DetailViewModel
 
-class StudentListAdapter(val studentList:ArrayList<Student>)
+class StudentListAdapter(val studentList:ArrayList<Student>, private val detailViewModel: DetailViewModel)
     :RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>() {
     class StudentViewHolder(view: View):RecyclerView.ViewHolder(view)
 
@@ -27,6 +28,9 @@ class StudentListAdapter(val studentList:ArrayList<Student>)
         txtId.text = studentList[position].id
         txtName.text = studentList[position].name
         btnDetail.setOnClickListener {
+            val selectedItem = studentList[position]
+            detailViewModel.setSelectedStudent(selectedItem)
+
             val action = StudentListFragmentDirections.actionStudentDetailFragment()
             Navigation.findNavController(it).navigate(action)
         }
