@@ -2,12 +2,16 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
 }
 
 android {
     namespace 'com.example.advweek4'
     compileSdk 34
 
+    dataBinding {
+        enabled true
+    }
     defaultConfig {
         applicationId "com.example.advweek4"
         minSdk 21

@@ -15,7 +15,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.advweek4.R
 import com.example.advweek4.viewmodel.DetailViewModel
 import com.example.advweek4.viewmodel.ListViewModel
-import com.example.advweek4.viewmodel.MenuDetailViewModel
 
 class StudentListFragment : Fragment() {
     private lateinit var viewModel: ListViewModel

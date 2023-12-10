@@ -19,8 +19,8 @@ class MovieListAdapter (val movieList:ArrayList<Movie>)
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        var txtIdMovie = holder.itemView.findViewById<TextView>(R.id.txtNamaHome)
-        var txtTitle = holder.itemView.findViewById<TextView>(R.id.txtWaitressHome)
+        var txtIdMovie = holder.itemView.findViewById<TextView>(R.id.txtID)
+        var txtTitle = holder.itemView.findViewById<TextView>(R.id.txtName)
         var txtReleaseYear = holder.itemView.findViewById<TextView>(R.id.txtReleaseYear)
         var txtGenre = holder.itemView.findViewById<TextView>(R.id.txtGenre)
         var txtActor = holder.itemView.findViewById<TextView>(R.id.txtActor)

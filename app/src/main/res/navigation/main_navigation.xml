@@ -6,38 +6,6 @@
     app:startDestination="@id/studentListFragment">
 
     <fragment
-        android:id="@+id/itemMenu"
-        android:name="com.example.advweek4.view.MenuFragment"
-        android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" >
-        <action
-            android:id="@+id/actionMenuDetailFragment"
-            app:destination="@id/menuDetailFragment" />
-        <action
-            android:id="@+id/actionItemHome"
-            app:destination="@id/itemHome" />
-    </fragment>
-    <fragment
-        android:id="@+id/itemOrder"
-        android:name="com.example.advweek4.view.OrderFragment"
-        android:label="fragment_order"
-        tools:layout="@layout/fragment_order" />
-    <fragment
-        android:id="@+id/itemProfile"
-        android:name="com.example.advweek4.view.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
-    <fragment
-        android:id="@+id/itemCart"
-        android:name="com.example.advweek4.view.CartFragment"
-        android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
-    <fragment
-        android:id="@+id/itemHome"
-        android:name="com.example.advweek4.view.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
-    <fragment
         android:id="@+id/studentListFragment"
         android:name="com.example.advweek4.view.StudentListFragment"
         android:label="fragment_student_list"
@@ -50,15 +18,14 @@
         android:id="@+id/studentDetailFragment"
         android:name="com.example.advweek4.view.StudentDetailFragment"
         android:label="fragment_student_detail"
-        tools:layout="@layout/fragment_student_detail" />
+        tools:layout="@layout/fragment_student_detail" >
+        <argument
+            android:name="uuid"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/movieListFragment"
         android:name="com.example.advweek4.view.MovieListFragment"
         android:label="fragment_movie_list"
         tools:layout="@layout/fragment_movie_list" />
-    <fragment
-        android:id="@+id/menuDetailFragment"
-        android:name="com.example.advweek4.view.MenuDetailFragment"
-        android:label="fragment_menu_detail"
-        tools:layout="@layout/fragment_menu_detail" />
 </navigation>
